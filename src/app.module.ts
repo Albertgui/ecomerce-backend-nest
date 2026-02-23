@@ -8,6 +8,8 @@ import { PrismaModule } from './prisma/prisma.module';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
+import { OrdersModule } from './orders/orders.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { CategoriesModule } from './categories/categories.module';
     PrismaModule,
     ProductsModule,
     CategoriesModule,
+    OrdersModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
