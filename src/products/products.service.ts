@@ -58,4 +58,16 @@ export class ProductsService {
       throw error;
     }
   }
+
+  async updateImage(id: string, imageUrl: string) {
+    const product = await this.prisma.product.findUnique({ where: { id } });
+    if (!product) {
+      throw new NotFoundException(`El producto con ID ${id} no existe`);
+    }
+
+    return await this.prisma.product.update({
+      where: { id },
+      data: { image: imageUrl },
+    });
+  }
 }
